@@ -5,7 +5,16 @@
 <template name='layout'>
     <h1>{{title}}</h1>
 
-    {{> yield}}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                {{>sidebar}}
+            </div>
+            <div class="col-lg-10">
+                {{>yield}}
+            </div>
+        </div>
 
-    <p>Copyright &copy; 2015 WeStudy LLC</p>
+        <p>Copyright &copy; 2015 WeStudy LLC</p>
+    </div>
 </template>

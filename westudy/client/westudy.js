@@ -8,18 +8,24 @@ Router.route('/', {
     name: 'home',
     template: 'home',
     data: {
-        title: "penis in my ass"
+        title: "WeStudy"
     }
 });
 
 Router.route('/register', {
     name: 'register',
-    template: 'register'
+    template: 'register',
+    data: {
+        title: "Register"
+    }
 });
 
 Router.route('/login', {
     name: 'login',
-    template: 'login'
+    template: 'login',
+    data: {
+        title: "Login"
+    }
 });
 
 Router.route('/(.*)', {

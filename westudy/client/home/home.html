@@ -1,9 +1,11 @@
 <template name="home">
 
-    <h1>Home Page</h1>
-
     <p>
         Home page placeholder
     </p>
+
+    {{#if currentUser}}
+        <a href="#" class="logout">Logout</a>
+    {{/if}}
 
 </template>

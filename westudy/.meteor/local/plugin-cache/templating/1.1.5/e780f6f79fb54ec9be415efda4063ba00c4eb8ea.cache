@@ -1,0 +1,1 @@
+{"head":"<title>\n        WeStudy\n    </title>","body":"","js":"\nTemplate.body.addContent((function() {\n  var view = this;\n  return [ \"Test\\n    \", Spacebars.include(view.lookupTemplate(\"home\")) ];\n}));\nMeteor.startup(Template.body.renderToDocument);\n","bodyAttrs":{}}

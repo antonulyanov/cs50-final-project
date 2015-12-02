@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.__checkName(\"home\");\nTemplate[\"home\"] = new Template(\"Template.home\", (function() {\n  var view = this;\n  return [ HTML.Raw(\"<h1>WeStudy</h1>\\n\\n    \"), Spacebars.include(view.lookupTemplate(\"test\")), HTML.Raw(\"\\n\\n    <p>Copyright &copy; 2015 WeStudy LLC</p>\") ];\n}));\n","bodyAttrs":{}}

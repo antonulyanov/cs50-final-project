@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.__checkName(\"login\");\nTemplate[\"login\"] = new Template(\"Template.login\", (function() {\n  var view = this;\n  return HTML.Raw(\"<p>\\n        Login page placeholder\\n    </p>\");\n}));\n","bodyAttrs":{}}

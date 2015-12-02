@@ -1,7 +1,7 @@
 // Router Configuration
 
 Router.configure({
-    layoutTemplate: 'home'
+    layoutTemplate: 'layout'
 });
 
 Router.route('/', {

@@ -6,7 +6,10 @@ Router.configure({
 
 Router.route('/', {
     name: 'home',
-    template: 'home'
+    template: 'home',
+    data: {
+        title: "penis in my ass"
+    }
 });
 
 Router.route('/register', {

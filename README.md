@@ -12,3 +12,7 @@ Nick edited this line in atom and is noting, officially, that Atom is sick af an
 Cynthia edited this line and hopes it works!!! (for the sake of Nick's bp. Although she can administer nitro if it's an emergency :) )
 
 Cynthia is trying again :3
+
+# new section
+
+This is a new section of the README, which helps organize it when used as a design doc. 

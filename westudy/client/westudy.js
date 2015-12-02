@@ -1,10 +1,15 @@
 // Router Configuration
 
 Router.configure({
-    layoutTemplate: 'layout'
+    layoutTemplate: 'layout',
 });
 
 Router.route('/', {
     name: 'home',
     template: 'home'
+});
+
+Router.route('/register', {
+    name: 'register',
+    template: 'register'
 });

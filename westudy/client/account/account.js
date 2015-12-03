@@ -1,28 +1,68 @@
 var account_error = function(error) {
+    $("#account_success").hide();
     $("#account_error").show();
     $("#account_error").html(error);
 };
 
-Template.register.events({
-    'submit #account_change': function(){
+var account_success = function(error) {
+    $("#account_error").hide();
+    $("#account_success").show();
+    $("#account_success").html(error);
+};
+
+Template.account.events({
+    'submit #account_change': function() {
 
         // prevents form from reloading the page by default
         event.preventDefault();
 
         // save the registration fields
-        var first_name = $('[id=first_name]').val();
-        var last_name = $('[id=last_name]').val();
+        var data = {
+            first_name: $('[id=first_name]').val(),
+            last_name: $('[id=last_name]').val()
+        }
 
         // validation
-        if (first_name === "" || last_name === "") {
+        if (data.first_name === "" || data.last_name === "") {
                 account_error('All fields are required.');
                 return;
         }
 
-        Meteor.user.profile.first_name = first_name;
-        Meteor.user.profile.last_name = last_name;
+        Meteor.users.update(Meteor.userId(), {$set: {profile: data}});
 
+        account_success("Profile updated successfully.");
+
+    },
+
+    'submit #password_change': function() {
+
+        // prevents form from reloading the page by default
+        event.preventDefault();
+
+        // save the registration fields
+        var current_password = $('[id=current_password]').val();
+        var new_password = $('[id=new_password]').val();
+        var new_password_confirmation = $('[id=new_password_confirmation]').val();
+
+        // validation
+        if (current_password === "" || new_password === "" || new_password_confirmation === "") {
+            account_error('All fields are required.');
+            return;
+        }
+
+        else if (new_password !== new_password_confirmation) {
+            account_error('The passwords you have entered do not match.');
+            return;
+        }
+
+        Accounts.changePassword(current_password, new_password, function(error){
+            if(error){
+                account_error(error.reason);
+            }
+
+            else {
+                account_success("Password changed successfully.");
+            }
         });
-
     }
 });

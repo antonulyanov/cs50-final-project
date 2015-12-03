@@ -40,8 +40,17 @@ Router.route('/account', {
     }
 });
 
+Router.route('/notfound', {
+    name: 'notfound',
+    template: 'notfound',
+    data: {
+        title: "Page Not Found",
+        secure: false
+    }
+});
+
 Router.route('/(.*)', {
-  action: function() {
-    Router.go('login');
-  }
+    action: function() {
+        Router.go('notfound');
+    }
 });

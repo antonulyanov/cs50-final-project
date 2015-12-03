@@ -1,7 +1,7 @@
 // Router Configuration
 
 Router.configure({
-    layoutTemplate: 'layout',
+    layoutTemplate: 'layout'
 });
 
 Router.route('/login', {

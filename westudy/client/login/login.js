@@ -8,8 +8,8 @@ Template.login.events({
 
         event.preventDefault();
 
-        var email = $('[name=email]').val();
-        var password = $('[name=password]').val();
+        var email = $('[id=email]').val();
+        var password = $('[id=password]').val();
 
         if (!/[\w\.]+@\w+\.\w+/.test(email)) {
             login_error('Email must match the following format: email@domain.com');

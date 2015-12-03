@@ -14,11 +14,17 @@ Template.register.events({
         var password = $('[id=password]').val();
         var password_confirmation = $('[id=password_confirmation]').val();
 
-        if (password !== password_confirmation)
-        {
+
+
+        if (!/[\w\.]+@\w+\.\w+/.test(email)) {
+            registration_error('Email must match the following format: email@domain.com');
+            return;
+        }
+        else if (password !== password_confirmation) {
             registration_error('The passwords you have entered don\'t match.');
             return;
         }
+
 
         Accounts.createUser({
             email: email,

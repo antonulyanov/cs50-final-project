@@ -17,6 +17,7 @@ Template.register.events({
         if (password !== password_confirmation)
         {
             registration_error('The passwords you have entered don\'t match.');
+            return;
         }
 
         Accounts.createUser({
@@ -28,7 +29,7 @@ Template.register.events({
             }
         }, function(error){
             if(error){
-                registration_error(error.reason)
+                registration_error(error.reason);
             }
 
             else {

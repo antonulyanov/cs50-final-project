@@ -54,3 +54,13 @@ Router.route('/(.*)', {
         Router.go('notfound');
     }
 });
+
+Router.onBeforeAction(function () {
+
+  if (this.current().data.secure && !Meteor.user()) {
+    // if the user is not logged in, render the Login template
+    this.go('Login');
+  } else {
+    this.next();
+  }
+});

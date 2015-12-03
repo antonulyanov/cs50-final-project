@@ -1,3 +1,12 @@
+var security_check = function() {
+    if (!Meteor.userId()) {
+        Router.go('login');
+    }
+    else {
+        this.next();
+    }
+};
+
 // Router Configuration
 
 Router.configure({
@@ -37,7 +46,9 @@ Router.route('/account', {
     data: {
         title: "Account",
         secure: true
-    }
+    },
+    onBeforeAction: security_check()
+
 });
 
 Router.route('/notfound', {
@@ -53,14 +64,4 @@ Router.route('/(.*)', {
     action: function() {
         Router.go('notfound');
     }
-});
-
-Router.onBeforeAction(function () {
-
-  if (this.current().data.secure && !Meteor.user()) {
-    // if the user is not logged in, render the Login template
-    this.go('Login');
-  } else {
-    this.next();
-  }
 });

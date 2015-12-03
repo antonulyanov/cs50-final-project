@@ -1,11 +1,23 @@
 <template name="home">
-
     <p>
-        Home page placeholder
+        Welcome to WeStudy!
     </p>
 
     {{#if currentUser}}
         <a href="#" class="logout">Logout</a>
     {{/if}}
 
+</template>
+
+<template name="subjectsMenu"
+    <div class="dropdown">
+        <a class="Subject" href="/">{{i18n "I would like to study..."}}</a>
+        <div class="dropdown-menu">
+            <ul role="menu" aria-labelledby="dLabel">
+                {{#each subjects}}
+                    {{> menuItem this}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 </template>

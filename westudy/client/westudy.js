@@ -1,12 +1,3 @@
-var security_check = function() {
-    if (!Meteor.userId()) {
-        Router.go('login');
-    }
-    else {
-        this.next();
-    }
-};
-
 // Router Configuration
 
 Router.configure({
@@ -18,7 +9,14 @@ Router.route('/', {
     template: 'home',
     data: {
         title: "WeStudy",
-        secure: false
+        secure: true
+    },
+    onBeforeAction: function() {
+        if(Meteor.userId()){
+            this.next();
+        } else {
+            Router.go("login");
+        }
     }
 });
 
@@ -47,8 +45,13 @@ Router.route('/account', {
         title: "Account",
         secure: true
     },
-    onBeforeAction: security_check()
-
+    onBeforeAction: function() {
+        if(Meteor.userId()){
+            this.next();
+        } else {
+            Router.go("login");
+        }
+    }
 });
 
 Router.route('/notfound', {

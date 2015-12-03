@@ -68,4 +68,4 @@ function security_check(route) {
     else {
         Router.go('login');
     }
-};
+}

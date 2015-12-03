@@ -1,9 +1,9 @@
 <template name="sidebar">
     <div id="sidebar">
-        <ul class="nav nav-list">
-            <li><a href="{{pathFor route='home'}}">Home</a></li>
-            <li><a href="{{pathFor route='login'}}">Login</a></li>
-            <li><a href="{{pathFor route='register'}}">Register</a></li>
+        <ul class="nav nav-pills nav-stacked">
+            <li id="home"><a href="{{pathFor route='home'}}">Home</a></li>
+            <li id="login"><a href="{{pathFor route='login'}}">Login</a></li>
+            <li id="register"><a href="{{pathFor route='register'}}">Register</a></li>
         </ul>
     </div>
 </template>

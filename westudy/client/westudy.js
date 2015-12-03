@@ -60,6 +60,15 @@ Router.route('/notfound', {
     }
 });
 
+Router.route('/about', {
+    name: 'about',
+    template: 'about',
+    data: {
+        title: "About",
+        secure: false
+    }
+});
+
 Router.route('/(.*)', {
     action: function() {
         Router.go('notfound');

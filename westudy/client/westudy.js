@@ -8,7 +8,8 @@ Router.route('/', {
     name: 'home',
     template: 'home',
     data: {
-        title: "WeStudy"
+        title: "WeStudy",
+        secure: false
     }
 });
 
@@ -16,7 +17,8 @@ Router.route('/register', {
     name: 'register',
     template: 'register',
     data: {
-        title: "Register"
+        title: "Register",
+        secure: false
     }
 });
 
@@ -24,7 +26,17 @@ Router.route('/login', {
     name: 'login',
     template: 'login',
     data: {
-        title: "Login"
+        title: "Login",
+        secure: false
+    }
+});
+
+Router.route('/account', {
+    name: 'account',
+    template: 'account',
+    data: {
+        title: "Account",
+        secure: true
     }
 });
 

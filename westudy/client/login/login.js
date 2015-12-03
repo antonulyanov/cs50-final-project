@@ -11,7 +11,9 @@ Template.login.events({
         var email = $('[id=email]').val();
         var password = $('[id=password]').val();
 
-        if (!/[\w\.]+@\w+\.\w+/.test(email)) {
+        var validEmail = /^[a-zA-Z0-9_\.\+\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z0-9\.\-]+$/;
+
+        if (!validEmail.test(email)) {
             login_error('Email must match the following format: email@domain.com');
             return;
         }

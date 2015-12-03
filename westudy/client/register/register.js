@@ -16,13 +16,16 @@ Template.register.events({
         var password = $('[id=password]').val();
         var password_confirmation = $('[id=password_confirmation]').val();
 
+        // pattern for a valid email
+        var validEmail = /^[a-zA-Z0-9_\.\+\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z0-9\.\-]+$/;
+
         // validation
         if (first_name === "" || last_name === "" || email === "" ||
             password === "" || password_confirmation === "") {
                 registration_error('All fields are required.');
                 return;
-            }
-        else if (!/[\w\.]+@\w+\.\w+/.test(email)) {
+        }
+        else if (!validEmail.test(email)) {
             registration_error('Email must match the following format: email@domain.com');
             return;
         }

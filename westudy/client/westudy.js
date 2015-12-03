@@ -50,8 +50,7 @@ Router.route('/about', {
     name: 'about',
     template: 'about',
     data: {
-        title: "About",
-        secure: false
+        title: "About"
     }
 });
 

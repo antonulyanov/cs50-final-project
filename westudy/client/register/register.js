@@ -1,6 +1,6 @@
-var registration_error = function(error) {
-    $("#registration_error").show();
-    $("#registration_error").html(error);
+function registration_error(error) {
+    $(".alert-danger").show();
+    $(".alert-danger").html(error);
 };
 
 Template.register.events({

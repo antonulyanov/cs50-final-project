@@ -1,6 +1,6 @@
-var login_error = function(error) {
-    $("#login_error").show();
-    $("#login_error").html(error);
+function login_error(error) {
+    $(".alert-danger").show();
+    $(".alert-danger").html(error);
 };
 
 Template.login.events({

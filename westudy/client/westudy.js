@@ -1,7 +1,7 @@
 // Router Configuration
 
 Router.configure({
-    layoutTemplate: 'layout',
+    layoutTemplate: 'layout'
 });
 
 Router.route('/login', {
@@ -17,8 +17,7 @@ Router.route('/', {
     template: 'home',
     data: {
         title: "WeStudy"
-    },
-    onBeforeAction: security_check(this)
+    }
 });
 
 Router.route('/register', {
@@ -34,8 +33,7 @@ Router.route('/account', {
     template: 'account',
     data: {
         title: "Account"
-    },
-    onBeforeAction: security_check(this)
+    }
 });
 
 Router.route('/notfound', {
@@ -60,9 +58,13 @@ Router.route('/(.*)', {
     }
 });
 
-function security_check(route) {
+Router.onBeforeAction(security_check, {
+  only: ['home', 'account']
+});
+
+function security_check() {
     if (Meteor.userId()) {
-        route.next();
+        this.next();
     }
     else {
         Router.go('login');

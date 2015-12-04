@@ -7,48 +7,48 @@ Router.configure({
 Router.route('/login', {
     name: 'login',
     template: 'login',
-    data: {
-        title: "Login"
+    data: function() {
+        return {title: "Login"};
     }
 });
 
 Router.route('/', {
     name: 'home',
     template: 'home',
-    data: {
-        title: "WeStudy"
+    data: function() {
+        return {title: "WeStudy"};
     }
 });
 
 Router.route('/register', {
     name: 'register',
     template: 'register',
-    data: {
-        title: "Register"
+    data: function() {
+        return {title: "Register"};
     }
 });
 
 Router.route('/account', {
     name: 'account',
     template: 'account',
-    data: {
-        title: "Account"
+    data: function() {
+        return {title: "Account"};
     }
 });
 
 Router.route('/notfound', {
     name: 'notfound',
     template: 'notfound',
-    data: {
-        title: "Page Not Found"
+    data: function() {
+        return {title: "Page Not Found"};
     }
 });
 
 Router.route('/about', {
     name: 'about',
     template: 'about',
-    data: {
-        title: "About"
+    data: function() {
+        return {title: "About"};
     }
 });
 
@@ -61,16 +61,30 @@ Router.route('/forums', {
 Router.route('/groups', {
     name: 'groups',
     template: 'groups',
+<<<<<<< HEAD
     data: function(){
         return {title: "Groups", groups: Groups.find().fetch()};
+=======
+    data: function() {
+        return {title: "Groups"};
+>>>>>>> f619169e66764f91ac8e5086d7c5d9368198ec92
     }
 });
 
 Router.route('/groups/create', {
     name: 'groups_create',
     template: 'groups_create',
-    data: {
-        title: "Create Group"
+    data: function() {
+        return {title: "Create A Group"};
+    }
+});
+
+Router.route('/groups/view/:group_id', {
+    name: 'groups_view',
+    template: 'groups_view',
+    data: function() {
+        var group = Groups.findOne({_id: this.params.group_id});
+        return {title: "Group Details", group: group};
     }
 });
 
@@ -81,7 +95,7 @@ Router.route('/(.*)', {
 });
 
 Router.onBeforeAction(security_check, {
-  only: ['home', 'account', 'groups', 'groups_create']
+  only: ['home', 'account', 'groups', 'groups_create', 'groups_view']
 });
 
 function security_check() {

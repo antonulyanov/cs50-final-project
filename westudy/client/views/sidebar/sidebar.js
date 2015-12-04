@@ -12,7 +12,6 @@ Router.onAfterAction(function() {
         currentTab = currentPage;
     }
 
-    console.log(currentTab);
 
     //change active tab
     $(".active").removeClass("active");

@@ -1,12 +1,25 @@
 <template name="groups">
 
-    <form>
-        <div class="input-group">
-           <input type="text" class="form-control" id="course" placeholder="Enter Course Name">
-           <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-           </span>
-        </div>
-    </form>
+    <div id="top bar">
+        <form>
+            <div class="input-group">
+               <input type="text" class="form-control" id="course" placeholder="Enter Course Name">
+               <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+               </span>
+            </div>
+        </form>
+
+        <a class="btn btn-default" href="{{pathFor route='groups_create'}}" role="button" id="create-group"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
+
+    <div class="list-group">
+        {{#each groups}}
+        <a href="{{pathFor route='groups_create' data='{group_id : {{_id}} }' }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{course}}</h4>
+            <p class="list-group-item-text">{{members.length}} Member(s) studying at {{location}}</p>
+        </a>
+        {{/each}}
+    </div>
 
 </template>

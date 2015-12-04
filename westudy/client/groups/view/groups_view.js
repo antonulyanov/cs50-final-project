@@ -12,7 +12,7 @@ Template.groups_view.onCreated(function () {
 Template.groups_view.rendered = function() {
 
     if (group.members[0] === Meteor.userId()) {
-        $("#delete_group").show();
+        $("#owner_options").show();
     }
     else if ($.inArray(Meteor.userId(), group.members) === -1)
     {
@@ -22,7 +22,7 @@ Template.groups_view.rendered = function() {
         $("#leave_group").show();
     }
 
-}
+};
 
 Template.groups_view.events({
     'submit #join_group': function(){

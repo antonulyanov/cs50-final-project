@@ -1,5 +1,8 @@
 <template name="groups_view">
     <p>
+        Name: {{group.name}}
+    </p>
+    <p>
         Created: {{group.timestamp}}
     </p>
     <p>
@@ -10,6 +13,9 @@
     </p>
     <p>
         Location: {{group.location}}
+    </p>
+    <p>
+        Description: {{group.description}}
     </p>
 
     <form id="join_group" style="display: none;">
@@ -22,9 +28,16 @@
         <button type="submit" class="btn btn-default">Leave Group</button>
     </form>
 
-    <form id="delete_group" style="display: none;">
-        <input type="hidden" value="{{group_info._id}}">
-        <button type="submit" class="btn btn-default">Delete Group</button>
-    </form>
+    <fieldset id='owner_options' style="display: none;">
+        <form id="delete_group">
+            <input type="hidden" value="{{group_info._id}}">
+            <button type="submit" class="btn btn-default">Delete Group</button>
+        </form>
+
+        <form id="edit_group">
+            <input type="hidden" value="{{group_info._id}}">
+            <button type="submit" class="btn btn-default">Edit Group</button>
+        </form>
+    </fieldset>
 
 </template>

@@ -1,7 +1,7 @@
 function group_creation_error(error) {
     $(".alert-danger").show();
     $(".alert-danger").html(error);
-};
+}
 
 Template.groups_create.events({
     'submit form': function(){
@@ -10,22 +10,26 @@ Template.groups_create.events({
         event.preventDefault();
 
         // save the registration fields
-        var course = $('[id=course]').val();
-        var location = $('[id=location]').val();
+        var name = $('#name').val();
+        var course = $('#course').val();
+        var location = $('#location').val();
+        var description = $("#description").val();
         var user_id = Meteor.userId();
         var timestamp = new Date();
 
         // validation
-        if (course === "") {
-            group_creation_error('Please list the subject for your group');
+        if (course === "" || name === "" || location === "") {
+            group_creation_error('Please fill in required fields.');
             return;
         }
 
         // add the account
         Groups.insert({
             timestamp: timestamp,
+            name: name,
             course: course,
             location: location,
+            description: description,
             members: [user_id]
         }, function(error, id) {
             if(error){

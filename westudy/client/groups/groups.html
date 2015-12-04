@@ -15,7 +15,7 @@
 
     <div class="list-group">
         {{#each groups}}
-        <a href="{{pathFor route='groups_view' data='{group_id : {{_id}} }' }}" class="list-group-item">
+        <a href="{{pathFor route='groups_view' group_id=_id }}" class="list-group-item">
             <h4 class="list-group-item-heading">{{course}}</h4>
             <p class="list-group-item-text">{{members.length}} Member(s) studying at {{location}}</p>
         </a>

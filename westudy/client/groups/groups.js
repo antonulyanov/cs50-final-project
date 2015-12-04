@@ -1,5 +1,5 @@
-Template.groups.helpers({
-    groups : function() {
-        return this.data.groups;
-    }
+Template.groups.onCreated(function() {
+    var groups = this.data.groups;
+    console.log(this.data.groups);
+    console.log(groups);
 });

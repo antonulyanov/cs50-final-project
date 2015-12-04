@@ -12,9 +12,19 @@
         Location: {{group.location}}
     </p>
 
-    <form>
+    <form id="join_group" style="display: none;">
         <input type="hidden" value="{{group_info._id}}">
         <button type="submit" class="btn btn-default">Join Group</button>
+    </form>
+
+    <form id="leave_group" style="display: none;">
+        <input type="hidden" value="{{group_info._id}}">
+        <button type="submit" class="btn btn-default">Leave Group</button>
+    </form>
+
+    <form id="delete_group" style="display: none;">
+        <input type="hidden" value="{{group_info._id}}">
+        <button type="submit" class="btn btn-default">Delete Group</button>
     </form>
 
 </template>

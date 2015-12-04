@@ -6,6 +6,15 @@ Groups.allow({
     },
     update: function (userId, doc, fieldNames, modifier) {
         return true;
+    },
+    remove: function (userId, doc) {
+
+        if (doc.members[0] == userId) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 })

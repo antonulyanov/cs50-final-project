@@ -1,13 +1,13 @@
 var account_error = function(error) {
-    $("#account_success").hide();
-    $("#account_error").show();
-    $("#account_error").html(error);
+    $(".alert-success").hide();
+    $(".alert-danger").show();
+    $(".alert-danger").html(error);
 };
 
 var account_success = function(error) {
-    $("#account_error").hide();
-    $("#account_success").show();
-    $("#account_success").html(error);
+    $(".alert-danger").hide();
+    $(".alert-success").show();
+    $(".alert-success").html(error);
 };
 
 Template.account.events({

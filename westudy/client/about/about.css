@@ -1,7 +1,16 @@
-#info{
+h2{
     text-align: center;
-    color: #666666;
-    font-size: 25px;
+    font-size: 60 pt;
     font-weight: bold;
-    padding-top: 20px;
+    /*padding-top: 3px;*/
+}
+
+#info{
+    padding-top: 10 px;
+    text-align: center;
+    font-size: 40 pt;
+}
+
+h3{
+    text-align: center;
 }

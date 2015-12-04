@@ -1,6 +1,10 @@
 .list-group {
     margin-top: 20px;
 }
- #create-group {
+.left {
+    text-align: left;
+}
 
- }
+.right {
+    text-align: right; 
+}

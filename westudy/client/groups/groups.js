@@ -1,5 +1,14 @@
 Template.groups.onCreated(function() {
     var groups = this.data.groups;
-    console.log(this.data.groups);
-    console.log(groups);
+
+
+
+
+});
+
+Template.groups.helpers({
+    formatDateTime : function(timestamp) {
+        return timestamp.toLocaleDateString('en-US') + " @ " +
+            timestamp.toLocaleTimeString('en-US');
+    }
 });

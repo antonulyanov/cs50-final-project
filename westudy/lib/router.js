@@ -67,7 +67,7 @@ Router.route('/groups', {
     name: 'groups',
     template: 'groups',
     data: function(){
-        return {title: "Groups", groups: Groups.find().fetch()};
+        return {title: "Groups", groups: Groups.find().fetch().reverse()};
 
     }
 });

@@ -1,7 +1,12 @@
 // Router Configuration
 
 Router.configure({
-    layoutTemplate: 'layout'
+    layoutTemplate: 'layout',
+    waitOn: function() {
+    return [
+      Meteor.subscribe('groups')
+    ];
+  }
 });
 
 Router.route('/login', {

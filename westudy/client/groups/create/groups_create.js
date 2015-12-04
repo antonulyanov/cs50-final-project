@@ -32,7 +32,7 @@ Template.groups_create.events({
                 group_creation_error(error.reason);
             }
             else {
-                Router.go('groups'); // Redirect user if registration succeeds
+                Router.go('groups_view', {group_id: id}); // Redirect user if registration succeeds
             }
         });
 

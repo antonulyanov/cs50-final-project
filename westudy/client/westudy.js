@@ -52,6 +52,14 @@ Router.route('/about', {
     }
 });
 
+Router.route('/groups', {
+    name: 'groups',
+    template: 'groups',
+    data: {
+        title: "Groups"
+    }
+});
+
 Router.route('/(.*)', {
     action: function() {
         Router.go('notfound');

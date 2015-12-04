@@ -2,27 +2,17 @@
 
     <div id="sidebar">
 
-        {{#if currentUser}}
-
         <ul class="nav nav-pills nav-stacked">
-            <li id="home"><a href="{{pathFor route='home'}}">Home</a></li>
-            <li id="groups"><a href="{{pathFor route='groups'}}">Groups</a></li>
-            <li id="forum"><a href="{{pathFor route='forum'}}">Forum</a></li>
-            <li id="account"><a href="{{pathFor route='account'}}">Account</a></li>
+            <li id="home" class='loggedIn'><a href="{{pathFor route='home'}}">Home</a></li>
+            <li id="groups" class='loggedIn'><a href="{{pathFor route='groups'}}">Groups</a></li>
+            <li id="forum" class='loggedIn'><a href="{{pathFor route='forum'}}">Forum</a></li>
+            <li id="account" class='loggedIn'><a href="{{pathFor route='account'}}">Account</a></li>
+            <li id="login" class='loggedOut'><a href="{{pathFor route='login'}}">Login</a></li>
+            <li id="register" class='loggedOut'><a href="{{pathFor route='register'}}">Register</a></li>
             <li id="about"><a href="{{pathFor route='about'}}">About</a></li>
             <li ><a class="space">&nbsp;</a></li>
-            <li id="logout"><a href="" class="logout">Logout</a></li>
+            <li id="logout" class='loggedIn'><a href="" class="logout">Logout</a></li>
         </ul>
-
-        {{else}}
-
-        <ul class="nav nav-pills nav-stacked">
-            <li id="login"><a href="{{pathFor route='login'}}">Login</a></li>
-            <li id="register"><a href="{{pathFor route='register'}}">Register</a></li>
-            <li id='about'><a href="{{pathFor route='about'}}">About</a></li>
-        </ul>
-
-        {{/if}}
 
     </div>
 

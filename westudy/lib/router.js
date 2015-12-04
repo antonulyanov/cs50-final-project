@@ -61,13 +61,9 @@ Router.route('/forums', {
 Router.route('/groups', {
     name: 'groups',
     template: 'groups',
-<<<<<<< HEAD
     data: function(){
         return {title: "Groups", groups: Groups.find().fetch()};
-=======
-    data: function() {
-        return {title: "Groups"};
->>>>>>> f619169e66764f91ac8e5086d7c5d9368198ec92
+
     }
 });
 

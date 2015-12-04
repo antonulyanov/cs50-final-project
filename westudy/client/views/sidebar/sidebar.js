@@ -3,9 +3,20 @@ Router.onAfterAction(function() {
 
     // highlight proper tab
     var currentPage = Router.current().route.getName();
+    var currentTab;
 
+    if (currentPage.indexOf('_') >= 0) {
+        currentTab = currentPage.substring(0, currentPage.indexOf('_'));
+    }
+    else {
+        currentTab = currentPage;
+    }
+
+    console.log(currentTab);
+
+    //change active tab
     $(".active").removeClass("active");
-    $("#" + currentPage).addClass("active");
+    $("#" + currentTab).addClass("active");
 
     // hide/unhide things based on if user is logged in
     var loggedIn = $(".loggedIn");

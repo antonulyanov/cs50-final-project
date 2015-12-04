@@ -52,7 +52,7 @@ Router.route('/about', {
     }
 });
 
-Router.route('/forum', {
+Router.route('/forums', {
     action: function() {
         Router.go('notfound');
     }

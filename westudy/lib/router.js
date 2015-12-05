@@ -58,8 +58,11 @@ Router.route('/about', {
 Router.route('/forums', {
     name: 'forums',
     template: 'forums',
+    waitOn : function() {
+        return Meteor.subscribe('posts');
+    },
     data: function(){
-        return {title: "Forums", posts: Posts.find().fetch().reverse()};
+        return {title: "Forums"};
 
     }
 });
@@ -75,9 +78,11 @@ Router.route('/forums/create', {
 Router.route('/forums/view/:post_id', {
     name: 'forums_view',
     template: 'forums_view',
+    waitOn : function() {
+        return Meteor.subscribe('post', this.params.post_id);
+    },
     data: function() {
-        var post = Posts.findOne({_id: this.params.post_id});
-        return {title: "View Post", post: post};
+        return {title: "View Post"};
     }
 });
 

@@ -12,7 +12,9 @@ function post_view_success(error) {
 
 Template.forums_view.onCreated(function () {
 
-    post = this.data.post;
+    post = Posts.findOne();
+
+    console.log(post);
 
     if (!post)
     {
@@ -70,5 +72,8 @@ Template.forums_view.helpers({
     formatDateTime : function(timestamp) {
         return timestamp.toLocaleDateString('en-US') + " @ " +
             timestamp.toLocaleTimeString('en-US');
+    },
+    post : function() {
+        return post;
     }
 });

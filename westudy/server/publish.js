@@ -16,9 +16,9 @@ Meteor.publish('posts', function() {
 });
 
 Meteor.publish('post', function(post_id) {
-  return Posts.findOne({_id: post_id});
+  return Posts.find({_id: post_id});
 });
 
 Meteor.publish('user_posts', function() {
-  return Posts.find({author: Meteor.userId()});
+  return Posts.find({author: this.userId});
 });

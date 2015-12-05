@@ -1,6 +1,7 @@
-h2 {
+h2.welcome {
     text-align: center;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 #info div {

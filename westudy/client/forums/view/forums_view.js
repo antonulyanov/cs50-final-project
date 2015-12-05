@@ -52,7 +52,7 @@ Template.forums_view.events({
 
         Posts.update({"_id": post._id}, {$push: {replies: reply} });
         post_view_success("Reply posted successfully.");
-        $('#reply').val();
+        $('#reply').val("");
 
     },
     'click #delete': function() {

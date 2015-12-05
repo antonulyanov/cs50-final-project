@@ -1,12 +1,7 @@
 // Router Configuration
 
 Router.configure({
-    layoutTemplate: 'layout',
-    waitOn: function() {
-    return [
-      Meteor.subscribe('groups')
-    ];
-  }
+    layoutTemplate: 'layout'
 });
 
 Router.route('/login', {
@@ -21,7 +16,10 @@ Router.route('/', {
     name: 'home',
     template: 'home',
     data: function() {
-        return {title: "WeStudy": user_groups : Groups.find().fetch().reverse()};
+        return {title: "WeStudy"};
+    },
+    waitOn : function() {
+        return Meteor.subscribe('user_groups');
     }
 });
 
@@ -66,9 +64,8 @@ Router.route('/forums', {
 Router.route('/groups', {
     name: 'groups',
     template: 'groups',
-    data: function(){
-        return {title: "Groups", groups: Groups.find().fetch().reverse()};
-
+    waitOn : function() {
+        return Meteor.subscribe('groups');
     }
 });
 

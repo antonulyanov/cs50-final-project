@@ -1,6 +1,52 @@
 <template name="home">
 
-    
+    <h4>Groups You're In:</h4>
+
+    <div class="list-group">
+        {{#each user_in}}
+        <a href="{{pathFor route='groups_view' group_id=_id }}" class="list-group-item">
+            <h4 class="list-group-item-heading">[{{course}}] - {{name}}</h4>
+            <p class="list-group-item-text ">
+                <div class="row">
+                    <div class="col-sm-6 left">{{members.length}} Member(s) studying at {{location}}</div>
+                    <div class="col-sm-6 right">Studying since: {{formatDateTime(timestamp)}}</div>
+                </div>
+            </p>
+        </a>
+        {{/each}}
+    </div>
+
+    <h4>Groups You Own:</h4>
+
+    <div class="list-group">
+        {{#each user_owned}}
+        <a href="{{pathFor route='groups_view' group_id=_id }}" class="list-group-item">
+            <h4 class="list-group-item-heading">[{{course}}] - {{name}}</h4>
+            <p class="list-group-item-text ">
+                <div class="row">
+                    <div class="col-sm-6 left">{{members.length}} Member(s) studying at {{location}}</div>
+                    <div class="col-sm-6 right">Studying since: {{formatDateTime(timestamp)}}</div>
+                </div>
+            </p>
+        </a>
+        {{/each}}
+    </div>
+
+    <h4>Your Forum Posts:</h4>
+
+    <div class="list-group">
+        {{#each user_owned}}
+        <a href="{{pathFor route='groups_view' group_id=_id }}" class="list-group-item">
+            <h4 class="list-group-item-heading">[{{course}}] - {{name}}</h4>
+            <p class="list-group-item-text ">
+                <div class="row">
+                    <div class="col-sm-6 left">{{members.length}} Member(s) studying at {{location}}</div>
+                    <div class="col-sm-6 right">Studying since: {{formatDateTime(timestamp)}}</div>
+                </div>
+            </p>
+        </a>
+        {{/each}}
+    </div>
 
 
 </template>

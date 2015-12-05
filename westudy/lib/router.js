@@ -21,7 +21,7 @@ Router.route('/', {
     name: 'home',
     template: 'home',
     data: function() {
-        return {title: "WeStudy": user_groups : Groups.find().fetch().reverse()};
+        return {title: "WeStudy", user_groups : Groups.find().fetch().reverse()};
     }
 });
 

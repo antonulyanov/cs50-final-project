@@ -5,7 +5,6 @@ Template.home.created = function () {
 
     // get all groups with user as a member
     var user_groups = Groups.find().fetch().reverse();
-    console.log(user_groups);
 
     // sort user groups into owned by user not owned by user
     user_groups.forEach(function(group) {

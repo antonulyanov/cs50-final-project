@@ -10,9 +10,10 @@ function group_edit_success(error) {
     $(".alert-success").html(error);
 }
 
+
 Template.groups_view.onCreated(function () {
 
-    group = this.data.group;
+    group = Groups.findOne();
 
     if (!group)
     {
@@ -97,5 +98,8 @@ Template.groups_view.helpers({
     formatDateTime : function(timestamp) {
         return timestamp.toLocaleDateString('en-US') + " @ " +
             timestamp.toLocaleTimeString('en-US');
+    },
+    group : function() {
+        return group;
     }
 });

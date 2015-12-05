@@ -100,9 +100,11 @@ Router.route('/groups/create', {
 Router.route('/groups/view/:group_id', {
     name: 'groups_view',
     template: 'groups_view',
+    waitOn : function() {
+        return Meteor.subscribe('group',this.params.group_id);
+    },
     data: function() {
-        var group = Groups.findOne({_id: this.params.group_id});
-        return {title: "Group Details", group: group};
+        return {title: "Group Details"};
     }
 });
 

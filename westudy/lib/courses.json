@@ -1,0 +1,42 @@
+{"courses":[
+ {
+  "cat_num": "10038",
+  "term": "FALL",
+  "bracketed": false,
+  "field": "PSY",
+  "number": "1601",
+  "title": "Developmental Disabilities",
+ },
+ {
+  "cat_num": "1008",
+  "term": "FALL",
+  "bracketed": false,
+  "field": "LING",
+  "number": "221r",
+  "title": "Workshop in Indo-European",
+ },
+ {
+  "cat_num": "10086",
+  "term": "FALL",
+  "bracketed": false,
+  "field": "LITER",
+  "number": "134",
+  "title": "World Cinema",
+ },
+ {
+  "cat_num": "10194",
+  "term": "FALL",
+  "bracketed": false,
+  "field": "SPANSH",
+  "number": "179",
+  "title": "Regarding the Pain of Spain",
+ },
+ {
+  "cat_num": "1022",
+  "term": "FALL",
+  "bracketed": false,
+  "field": "ANTHRO",
+  "number": "1175",
+  "title": "The Archaeology of Ethnicity",
+ }
+]}

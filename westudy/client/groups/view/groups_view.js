@@ -2,13 +2,13 @@ function group_edit_error(error) {
     $(".alert-success").hide();
     $(".alert-danger").show();
     $(".alert-danger").html(error);
-};
+}
 
 function group_edit_success(error) {
     $(".alert-danger").hide();
     $(".alert-success").show();
     $(".alert-success").html(error);
-};
+}
 
 Template.groups_view.onCreated(function () {
 
@@ -30,7 +30,7 @@ Template.groups_view.rendered = function() {
         $("#edit_group").prop('disabled', false);
         $("#delete_group").prop('disabled', false);
     }
-    else if ($.inArray(Meteor.userId(), group.members) === -1)
+    else if ($.inArray(Meteor.userId(), group.members) !== -1)
     {
         $("#current_member").show();
         $("#leave_group").prop('disabled', false);
@@ -47,8 +47,6 @@ Template.groups_view.events({
 
         // prevents form from reloading the page by default
         event.preventDefault();
-
-        console.log(group._id);
 
         Groups.update({"_id": group._id}, {$push: {members: Meteor.userId()}});
         Router.go("groups");

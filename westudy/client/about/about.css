@@ -10,6 +10,8 @@ h2.welcome {
     font-size: 12pt;
 }
 
-h3 {
+h3.subheader {
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }

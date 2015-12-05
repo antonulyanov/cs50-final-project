@@ -4,7 +4,8 @@ Router.configure({
     layoutTemplate: 'layout',
     waitOn: function() {
     return [
-      Meteor.subscribe('groups')
+      Meteor.subscribe('groups'),
+      Meteor.subscribe('posts')
     ];
   }
 });
@@ -58,8 +59,28 @@ Router.route('/about', {
 });
 
 Router.route('/forums', {
-    action: function() {
-        Router.go('notfound');
+    name: 'forums',
+    template: 'forums',
+    data: function(){
+        return {title: "Forums", posts: Posts.find().fetch().reverse()};
+
+    }
+});
+
+Router.route('/forums/create', {
+    name: 'forums_create',
+    template: 'forums_create',
+    data: function() {
+        return {title: "New Post"};
+    }
+});
+
+Router.route('/forums/view/:post_id', {
+    name: 'forums_view',
+    template: 'forums_view',
+    data: function() {
+        var post = Posts.findOne({_id: this.params.post_id});
+        return {title: "View Post", post: post};
     }
 });
 
@@ -76,7 +97,7 @@ Router.route('/groups/create', {
     name: 'groups_create',
     template: 'groups_create',
     data: function() {
-        return {title: "Create A Group"};
+        return {title: "New Group"};
     }
 });
 

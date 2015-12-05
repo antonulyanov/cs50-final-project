@@ -1,9 +1,6 @@
 Template.groups.onCreated(function() {
     var groups = this.data.groups;
 
-
-
-
 });
 
 Template.groups.helpers({

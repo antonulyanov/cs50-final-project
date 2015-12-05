@@ -1,0 +1,13 @@
+<template name="forums">
+
+    <a class="btn btn-default btn-block" href="{{pathFor route='forums_create'}}" role="button"><span class="glyphicon glyphicon-plus"></span></a>
+
+    <div class="list-group">
+        {{#each posts}}
+        <a href="{{pathFor route='forums_view' post_id=_id }}" class="list-group-item">
+            <h4 class="list-group-item-heading">[{{title}}] - {{formatDateTime(timestamp)}}</h4>
+        </a>
+        {{/each}}
+    </div>
+
+</template>

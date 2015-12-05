@@ -1,3 +1,15 @@
+function group_edit_error(error) {
+    $(".alert-success").hide();
+    $(".alert-danger").show();
+    $(".alert-danger").html(error);
+};
+
+function group_edit_success(error) {
+    $(".alert-danger").hide();
+    $(".alert-success").show();
+    $(".alert-success").html(error);
+};
+
 Template.groups_view.onCreated(function () {
 
     group = this.data.group;
@@ -12,29 +24,37 @@ Template.groups_view.onCreated(function () {
 Template.groups_view.rendered = function() {
 
     if (group.members[0] === Meteor.userId()) {
-        $("#owner_options").show();
+        $("#current_member").show();
+        $("#group_information input").prop("disabled", false);
+        $("#group_information textarea").prop("disabled", false);
+        $("#edit_group").prop('disabled', false);
+        $("#delete_group").prop('disabled', false);
     }
     else if ($.inArray(Meteor.userId(), group.members) === -1)
     {
-        $("#join_group").show();
+        $("#current_member").show();
+        $("#leave_group").prop('disabled', false);
     }
     else {
-        $("#leave_group").show();
+        $("#prospective_member").show();
+        $("#join_group").prop('disabled', false);
     }
 
 };
 
 Template.groups_view.events({
-    'submit #join_group': function(){
+    'click #join_group': function() {
 
         // prevents form from reloading the page by default
         event.preventDefault();
+
+        console.log(group._id);
 
         Groups.update({"_id": group._id}, {$push: {members: Meteor.userId()}});
         Router.go("groups");
 
     },
-    'submit #leave_group': function(){
+    'click #leave_group': function() {
 
         // prevents form from reloading the page by default
         event.preventDefault();
@@ -43,7 +63,28 @@ Template.groups_view.events({
         Router.go("groups");
 
     },
-    'submit #delete_group': function(){
+    'click #edit_group': function() {
+
+        // prevents form from reloading the page by default
+        event.preventDefault();
+
+        var name = $('#name').val();
+        var course = $('#course').val();
+        var location = $('#location').val();
+        var description = $("#description").val();
+
+        // validation
+        if (course === "" || name === "" || location === "") {
+            console.log("validation error");
+            group_edit_error('Please fill in required fields.');
+            return;
+        }
+
+        Groups.update({"_id": group._id}, { $set: {name: name, course: course, location: location, description: description} });
+        group_edit_success("Group updated successfully.");
+
+    },
+    'click #delete_group': function() {
 
         // prevents form from reloading the page by default
         event.preventDefault();

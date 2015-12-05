@@ -1,43 +1,44 @@
 <template name="groups_view">
+
+    <div class="alert alert-danger" role="alert" style="display: none;"></div>
+    <div class="alert alert-success" role="alert" style="display: none;"></div>
+
     <p>
-        Name: {{group.name}}
-    </p>
-    <p>
-        Created: {{group.timestamp}}
-    </p>
-    <p>
-        Members: {{group.members.length}}
-    </p>
-    <p>
-        Course: {{group.course}}
-    </p>
-    <p>
-        Location: {{group.location}}
-    </p>
-    <p>
-        Description: {{group.description}}
+        This group was created on {{group.timestamp}} and currently has {{group.members.length}} member(s).
     </p>
 
-    <form id="join_group" style="display: none;">
-        <input type="hidden" value="{{group_info._id}}">
-        <button type="submit" class="btn btn-default">Join Group</button>
+    <form id="group_information">
+
+        <div class="form-group">
+            <label for="name">Group Name</label>
+            <input type="text" class="form-control" id="name" value="{{group.name}}" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="course">Course</label>
+            <input type="text" class="form-control" id="course" value="{{group.course}}" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" value="{{group.location}}" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" rows="3" id="description" disabled>{{group.description}}</textarea>
+        </div>
+
+        <div class="btn-group" id="prospective_member" style="display: none;">
+            <button type="button" id="join_group" class="btn btn-default" disabled>Join Group</button>
+        </div>
+
+        <div class="btn-group" id="current_member" style="display: none;">
+            <button type="button" id="leave_group" class="btn btn-default" disabled>Leave Group</button>
+            <button type="button" id="edit_group" class="btn btn-default" disabled>Edit Group</button>
+            <button type="button" id="delete_group" class="btn btn-default" disabled>Delete Group</button>
+        </div>
+
     </form>
-
-    <form id="leave_group" style="display: none;">
-        <input type="hidden" value="{{group_info._id}}">
-        <button type="submit" class="btn btn-default">Leave Group</button>
-    </form>
-
-    <fieldset id='owner_options' style="display: none;">
-        <form id="delete_group">
-            <input type="hidden" value="{{group_info._id}}">
-            <button type="submit" class="btn btn-default">Delete Group</button>
-        </form>
-
-        <form id="edit_group">
-            <input type="hidden" value="{{group_info._id}}">
-            <button type="submit" class="btn btn-default">Edit Group</button>
-        </form>
-    </fieldset>
 
 </template>

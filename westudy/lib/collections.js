@@ -29,7 +29,7 @@ Posts.allow({
     },
     remove: function (userId, doc) {
 
-        if (doc.members[0] == userId) {
+        if (doc.author == userId) {
             return true;
         }
         else {

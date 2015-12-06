@@ -1,3 +1,9 @@
+Template.groups_view.created = function() {
+    group = getGroup();
+
+    if (!group)
+        Router.go("notfound");
+};
 
 
 Template.groups_view.rendered = function() {
@@ -84,11 +90,8 @@ Template.groups_view.helpers({
 
 function getGroup() {
     group = Groups.findOne();
+    return group;
 
-    if (group)
-        return group;
-
-    Router.go("notfound");
 }
 
 function group_edit_error(error) {

@@ -17,7 +17,7 @@
             programmers don't need to write the same HTML code multiple times by hand. A specific example
             of this is seen in the westudy.html file, where we called the template sidebar using syntax which is part of a
             language called Spacebars that Meteor uses to add functionality to HTML.  The folders and files are organized in the project by
-            path.  That is, files that load when you visit /accounts are in the client/acounts folder and
+            path.  That is, files that load when you visit /accounts are in the client/accounts folder and
             files that load when you visit /forums/view/[post_id] are located in the client/forums/view.
         </p>
         <p>
@@ -29,10 +29,10 @@
         </p>
         <p>
             Also in the JS code for each template, there are onCreated() (or created) and/or onRendered() (or rendered)
-            to help hendle how the template is loaded.  The created handler will run when the template is created and runs
-            only once. The rendered handler will runn when the template is rendered in the DOM, and runs when data passed to the DOM changes.
+            to help handle how the template is loaded.  The created handler will run when the template is created and runs
+            only once. The rendered handler will run when the template is rendered in the DOM, and runs when data passed to the DOM changes.
             Also, there is a handler called helpers() which is where a series of helper functions or variables are defined.  These
-            variables are what is available to the DOM in each JS file's cooresponding HTML file using {{variable}} selectors.
+            variables are what is available to the DOM in each JS file's coresponding HTML file using {{variable}} selectors.
         </p>
         <p>
             For router configuration, we first defined a default layout template that applies to all templates.

@@ -12,7 +12,7 @@ UI.registerHelper('getUserName', function(user_id) {
 });
 
 
-
+// handles event to mobile nav collapse button
 Template.layout.events({
     "click .navbar-toggle" : function() {
         $('#sidebar').toggle();

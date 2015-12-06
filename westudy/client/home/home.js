@@ -1,10 +1,14 @@
-var user_in = [];
-var user_owned = [];
+Template.home.helpers({
+    user_groups : function() {
+        return getUserGroups();
+    }
+});
 
-Template.home.created = function () {
-
+function getUserGroups() {
     // get all groups with user as a member
     var user_groups = Groups.find().fetch().reverse();
+    var user_owned = [];
+    var user_in = [];
 
     // sort user groups into owned by user not owned by user
     user_groups.forEach(function(group) {
@@ -15,14 +19,6 @@ Template.home.created = function () {
             user_in.push(group);
         }
     });
-};
 
-
-Template.home.helpers({
-    user_owned : function() {
-        return user_owned;
-    },
-    user_in : function() {
-        return user_in;
-    }
-});
+    return {owned : user_owned, in : user_in};
+}

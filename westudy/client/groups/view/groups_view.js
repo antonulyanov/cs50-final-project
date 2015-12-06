@@ -1,26 +1,4 @@
-function group_edit_error(error) {
-    $(".alert-success").hide();
-    $(".alert-danger").show();
-    $(".alert-danger").html(error);
-}
 
-function group_edit_success(error) {
-    $(".alert-danger").hide();
-    $(".alert-success").show();
-    $(".alert-success").html(error);
-}
-
-
-Template.groups_view.onCreated(function () {
-
-    group = Groups.findOne();
-
-    if (!group)
-    {
-        Router.go('notfound');
-    }
-
-});
 
 Template.groups_view.rendered = function() {
 
@@ -96,6 +74,28 @@ Template.groups_view.events({
 
 Template.groups_view.helpers({
     group : function() {
-        return group;
+        return getGroup();
     }
 });
+
+
+function getGroup() {
+    group = Groups.findOne();
+
+    if (group)
+        return group;
+
+    Router.go("notfound");
+}
+
+function group_edit_error(error) {
+    $(".alert-success").hide();
+    $(".alert-danger").show();
+    $(".alert-danger").html(error);
+}
+
+function group_edit_success(error) {
+    $(".alert-danger").hide();
+    $(".alert-success").show();
+    $(".alert-success").html(error);
+}

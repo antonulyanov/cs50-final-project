@@ -10,7 +10,7 @@ function post_view_success(error) {
     $(".alert-success").html(error);
 }
 
-Template.forums_view.onCreated(function () {
+Template.forums_view.created = function () {
 
     post = Posts.findOne();
 
@@ -21,9 +21,9 @@ Template.forums_view.onCreated(function () {
         Router.go('notfound');
     }
 
-    post.tags = post.tags.join(" ");
+    postTags = post.tags.join(" ");
 
-});
+};
 
 Template.forums_view.rendered = function() {
 
@@ -70,6 +70,14 @@ Template.forums_view.events({
 
 Template.forums_view.helpers({
     post : function() {
-        return post;
+        return getPost();
+    },
+    postTags : function() {
+        return postTags;
     }
 });
+
+function getPost() {
+    var post = Posts.findOne();
+    return post;
+}

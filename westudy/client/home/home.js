@@ -1,3 +1,6 @@
+var user_owned = [];
+var user_in = [];
+
 Template.home.helpers({
     user_groups : function() {
         return getUserGroups();
@@ -9,9 +12,9 @@ Template.home.helpers({
 
 function getUserGroups() {
     // get all groups with user as a member
-    var user_groups = Groups.find().fetch().reverse();
-    var user_owned = [];
-    var user_in = [];
+    var user_groups = Groups.find({},{sort: {timestamp: 1}}).fetch();
+    user_owned = [];
+    user_in = [];
 
     // sort user groups into owned by user not owned by user
     user_groups.forEach(function(group) {
@@ -27,6 +30,6 @@ function getUserGroups() {
 }
 
 function getUserPosts() {
-    var user_posts = Posts.find().fetch().reverse();
+    var user_posts = Posts.find({},{sort: {timestamp: 1}});
     return user_posts;
 }

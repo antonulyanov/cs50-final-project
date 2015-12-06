@@ -3,6 +3,9 @@
     <h4>Groups You're In:</h4>
 
     {{#with user_groups}}
+
+    {{#if in}}
+
     <div class="list-group">
         {{#each in}}
         <a href="{{pathFor route='groups_view' group_id=_id }}" class="list-group-item">
@@ -17,7 +20,19 @@
         {{/each}}
     </div>
 
+    {{else}}
+
+    <div class="list-group">
+        <a href="{{pathFor route='groups_create'}}" class="list-group-item">
+            <h4 class="list-group-item-heading">You don't own any groups! Click here to create one</h4>
+        </a>
+    </div>
+
+    {{/if}}
+
     <h4>Groups You Own:</h4>
+
+    {{#if owned}}
 
     <div class="list-group">
         {{#each owned}}
@@ -32,9 +47,25 @@
         </a>
         {{/each}}
     </div>
+
+
+    {{else}}
+
+    <div class="list-group">
+        <a href="{{pathFor route='groups'}}" class="list-group-item">
+            <h4 class="list-group-item-heading">You're not in any groups! Click here to find one</h4>
+        </a>
+    </div>
+
+    {{/if}}
+
     {{/with}}
 
+
+
     <h4>Your Forum Posts:</h4>
+
+    {{#if user_posts}}
 
     <div class="list-group">
         {{#each user_posts}}
@@ -49,6 +80,16 @@
         </a>
         {{/each}}
     </div>
+
+    {{else}}
+
+    <div class="list-group">
+        <a href="{{pathFor route='forums_create'}}" class="list-group-item">
+            <h4 class="list-group-item-heading">You have no posts! Click here to create one</h4>
+        </a>
+    </div>
+
+    {{/if}}
 
 
 </template>

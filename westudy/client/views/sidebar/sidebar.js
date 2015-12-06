@@ -30,6 +30,11 @@ Router.onAfterAction(function() {
         loggedIn.addClass("hidden");
     }
 
+    // hide the sidebar if the collapse button is visible (on mobile)
+    if($(".navbar-toggle").is(":visible")) {
+        $('#sidebar').hide();
+    }
+
 });
 
 Template.sidebar.events({

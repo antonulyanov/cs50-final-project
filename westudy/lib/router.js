@@ -55,6 +55,22 @@ Router.route('/about', {
     }
 });
 
+Router.route('/about/documentation', {
+    name: 'documentation',
+    template: 'documentation',
+    data: function() {
+        return {title: "Documentation"};
+    }
+});
+
+Router.route('/about/design', {
+    name: 'design',
+    template: 'design',
+    data: function() {
+        return {title: "Design"};
+    }
+});
+
 Router.route('/forums', {
     name: 'forums',
     template: 'forums',

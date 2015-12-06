@@ -17,9 +17,9 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="logo.svg"
-   inkscape:export-filename="C:\Users\Nick Hawke\Documents\College\CS50\cs50-final-project\westudy\public\favicon.png"
-   inkscape:export-xdpi="28.799999"
-   inkscape:export-ydpi="28.799999">
+   inkscape:export-filename="C:\Users\Nick Hawke\Documents\College\CS50\cs50-final-project\westudy\public\logo.png"
+   inkscape:export-xdpi="63.485672"
+   inkscape:export-ydpi="63.485672">
   <defs
      id="defs4">
     <clipPath
@@ -48,9 +48,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="-653.8016"
-     inkscape:cy="-216.41266"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="-278.36421"
+     inkscape:cy="-90.214318"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -95,8 +95,8 @@
      transform="translate(-246.43905,-500.79085)">
     <a
        id="a4150"
-       xlink:href="/"
-       target="/">
+       xlink:href=""
+       target="">
       <g
          transform="matrix(0.88058753,0,0,0.88058753,29.427896,51.08881)"
          id="g4214">

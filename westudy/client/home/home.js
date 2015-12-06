@@ -1,6 +1,9 @@
 Template.home.helpers({
     user_groups : function() {
         return getUserGroups();
+    },
+    user_posts : function() {
+        return getUserPosts();
     }
 });
 
@@ -21,4 +24,9 @@ function getUserGroups() {
     });
 
     return {owned : user_owned, in : user_in};
+}
+
+function getUserPosts() {
+    var user_posts = Posts.find().fetch().reverse();
+    return user_posts;
 }

@@ -95,10 +95,6 @@ Template.groups_view.events({
 });
 
 Template.groups_view.helpers({
-    formatDateTime : function(timestamp) {
-        return timestamp.toLocaleDateString('en-US') + " @ " +
-            timestamp.toLocaleTimeString('en-US');
-    },
     group : function() {
         return group;
     }

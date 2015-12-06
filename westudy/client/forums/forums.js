@@ -4,10 +4,6 @@ Template.forums.onCreated(function() {
 });
 
 Template.forums.helpers({
-    formatDateTime : function(timestamp) {
-        return timestamp.toLocaleDateString('en-US') + " @ " +
-            timestamp.toLocaleTimeString('en-US');
-    },
     posts : function() {
         return posts;
     }

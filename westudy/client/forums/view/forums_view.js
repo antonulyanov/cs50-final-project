@@ -69,10 +69,6 @@ Template.forums_view.events({
 });
 
 Template.forums_view.helpers({
-    formatDateTime : function(timestamp) {
-        return timestamp.toLocaleDateString('en-US') + " @ " +
-            timestamp.toLocaleTimeString('en-US');
-    },
     post : function() {
         return post;
     }

@@ -1,3 +1,4 @@
+// groups publishes
 Meteor.publish('groups', function() {
     return Groups.find();
 });
@@ -10,6 +11,7 @@ Meteor.publish('user_groups', function() {
     return Groups.find({members: this.userId});
 });
 
+// forums publishes
 Meteor.publish('posts', function() {
     return Posts.find();
 });
@@ -24,4 +26,9 @@ Meteor.publish('post', function(post_id) {
 
 Meteor.publish('user_posts', function() {
     return Posts.find({author: this.userId});
+});
+
+// user publishes
+Meteor.publish('user_data', function() {
+    return Meteor.users.find({}, {fields : {profile: 1, _id: 1}});
 });

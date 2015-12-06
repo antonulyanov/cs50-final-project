@@ -4,14 +4,24 @@ Router.configure({
     layoutTemplate: 'layout'
 });
 
-Router.route('/login', {
-    name: 'login',
-    template: 'login',
-    data: function() {
-        return {title: "Login"};
-    }
+
+Router.onBeforeAction(security_check, {
+  only: ['home', 'account', 'groups', 'groups_create', 'groups_view', 'forums', 'forums_tag', 'forums_create', 'forums_view']
 });
 
+// prevents not logged in users from visiting certain paths
+function security_check() {
+    if (Meteor.userId()) {
+        this.next();
+    }
+    else {
+        Router.go('login');
+    }
+}
+
+// ROUTES BELOW
+
+// home route
 Router.route('/', {
     name: 'home',
     template: 'home',
@@ -19,34 +29,13 @@ Router.route('/', {
         return {title: "WeStudy"};
     },
     waitOn : function() {
-        return [Meteor.subscribe('user_groups'), Meteor.subscribe('user_posts')];
+        return [Meteor.subscribe('user_groups'), Meteor.subscribe('user_data'),
+            Meteor.subscribe('usernames')];
     }
 });
 
-Router.route('/register', {
-    name: 'register',
-    template: 'register',
-    data: function() {
-        return {title: "Register"};
-    }
-});
 
-Router.route('/account', {
-    name: 'account',
-    template: 'account',
-    data: function() {
-        return {title: "Account"};
-    }
-});
-
-Router.route('/notfound', {
-    name: 'notfound',
-    template: 'notfound',
-    data: function() {
-        return {title: "Page Not Found"};
-    }
-});
-
+// about routes
 Router.route('/about', {
     name: 'about',
     template: 'about',
@@ -71,11 +60,20 @@ Router.route('/about/design', {
     }
 });
 
+// acount page route
+Router.route('/account', {
+    name: 'account',
+    template: 'account',
+    data: function() {
+        return {title: "Account"};
+    }
+});
+
 Router.route('/forums', {
     name: 'forums',
     template: 'forums',
     waitOn : function() {
-        return Meteor.subscribe('posts');
+        return [Meteor.subscribe('posts'), Meteor.subscribe('user_data')];
     },
     data: function(){
         return {title: "Forums"};
@@ -83,6 +81,7 @@ Router.route('/forums', {
     }
 });
 
+// forums routes
 Router.route('/forums/create', {
     name: 'forums_create',
     template: 'forums_create',
@@ -95,7 +94,7 @@ Router.route('/forums/tag/:tag', {
     name: 'forums_tag',
     template: 'forums_tag',
     waitOn : function() {
-        return Meteor.subscribe('tagged_posts', this.params.tag);
+        return [Meteor.subscribe('tagged_posts', this.params.tag), Meteor.subscribe('user_data')];
     },
     data: function() {
         return {title: "Tag Search", tag: this.params.tag};
@@ -106,13 +105,14 @@ Router.route('/forums/view/:post_id', {
     name: 'forums_view',
     template: 'forums_view',
     waitOn : function() {
-        return Meteor.subscribe('post', this.params.post_id);
+        return [Meteor.subscribe('post', this.params.post_id), Meteor.subscribe('user_data')];
     },
     data: function() {
         return {title: "View Post"};
     }
 });
 
+// groups routes
 Router.route('/groups', {
     name: 'groups',
     template: 'groups',
@@ -140,21 +140,36 @@ Router.route('/groups/view/:group_id', {
     }
 });
 
+// login page route
+Router.route('/login', {
+    name: 'login',
+    template: 'login',
+    data: function() {
+        return {title: "Login"};
+    }
+});
+
+// not found route
+Router.route('/notfound', {
+    name: 'notfound',
+    template: 'notfound',
+    data: function() {
+        return {title: "Page Not Found"};
+    }
+});
+
+// register page route
+Router.route('/register', {
+    name: 'register',
+    template: 'register',
+    data: function() {
+        return {title: "Register"};
+    }
+});
+
+// route for everything else: renders notfound
 Router.route('/(.*)', {
     action: function() {
-        Router.go('notfound');
+        this.render('notfound');
     }
 });
-
-Router.onBeforeAction(security_check, {
-  only: ['home', 'account', 'groups', 'groups_create', 'groups_view', 'forums', 'forums_tag', 'forums_create', 'forums_view']
-});
-
-function security_check() {
-    if (Meteor.userId()) {
-        this.next();
-    }
-    else {
-        Router.go('login');
-    }
-}

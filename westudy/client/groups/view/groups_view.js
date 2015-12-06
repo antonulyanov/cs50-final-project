@@ -28,7 +28,10 @@ Template.groups_view.events({
         event.preventDefault();
 
         Groups.update({"_id": group._id}, {$push: {members: Meteor.userId()}});
-        Router.go("groups");
+        $("#prospective_member").hide();
+        $("#current_member").show();
+        $("#join_group").prop('disabled', true);
+        $("#leave_group").prop('disabled', false);
 
     },
     'click #leave_group': function() {

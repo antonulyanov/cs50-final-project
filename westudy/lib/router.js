@@ -45,7 +45,7 @@ Router.route('/about', {
 });
 
 Router.route('/about/documentation', {
-    name: 'documentation',
+    name: 'about_documentation',
     template: 'documentation',
     data: function() {
         return {title: "Documentation"};
@@ -53,7 +53,7 @@ Router.route('/about/documentation', {
 });
 
 Router.route('/about/design', {
-    name: 'design',
+    name: 'about_design',
     template: 'design',
     data: function() {
         return {title: "Design"};

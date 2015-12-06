@@ -1,15 +1,3 @@
-var account_error = function(error) {
-    $(".alert-success").hide();
-    $(".alert-danger").show();
-    $(".alert-danger").html(error);
-};
-
-var account_success = function(error) {
-    $(".alert-danger").hide();
-    $(".alert-success").show();
-    $(".alert-success").html(error);
-};
-
 Template.account.events({
     'submit #account_change': function() {
 
@@ -66,3 +54,15 @@ Template.account.events({
         });
     }
 });
+
+function account_error(error) {
+    $(".alert-success").hide();
+    $(".alert-danger").show();
+    $(".alert-danger").html(error);
+}
+
+function account_success(error) {
+    $(".alert-danger").hide();
+    $(".alert-success").show();
+    $(".alert-success").html(error);
+}

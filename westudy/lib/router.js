@@ -29,8 +29,8 @@ Router.route('/', {
         return {title: "WeStudy"};
     },
     waitOn : function() {
-        return [Meteor.subscribe('user_groups'), Meteor.subscribe('user_data'),
-            Meteor.subscribe('usernames')];
+        return [Meteor.subscribe('user_groups'), Meteor.subscribe('user_posts'),
+            Meteor.subscribe('user_data')];
     }
 });
 

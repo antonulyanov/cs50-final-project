@@ -1,0 +1,12 @@
+h2.title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+p.instructions {
+    max-width: 900px;
+}
+
+div.link {
+    text-align: center;
+}

@@ -2,6 +2,8 @@
 
     <a class="btn btn-default btn-block" href="{{pathFor route='forums_create'}}" role="button"><span class="glyphicon glyphicon-plus"></span></a>
 
+    <div class="spacer" style="margin: 20px;"></div>
+
     <div class="well">
         <b>Tags:&nbsp;&nbsp;&nbsp;&nbsp;</b>{{#each tags}}<a href="{{pathFor route='forums_tag' tag=this }}">{{this}}</a>&nbsp;&nbsp;&nbsp;&nbsp;{{/each}}
     </div>

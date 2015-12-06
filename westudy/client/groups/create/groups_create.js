@@ -1,15 +1,12 @@
-function group_creation_error(error) {
-    $(".alert-danger").show();
-    $(".alert-danger").html(error);
-}
-
 Template.groups_create.events({
+
+    // detect group creation form submission
     'submit form': function(){
 
-        // prevents form from reloading the page by default
+        // prevent default page reload
         event.preventDefault();
 
-        // save the registration fields
+        // collect user form data
         var name = $('#name').val();
         var course = $('#course').val();
         var location = $('#location').val();
@@ -17,13 +14,14 @@ Template.groups_create.events({
         var user_id = Meteor.userId();
         var timestamp = new Date();
 
-        // validation
+        // validate required fields
         if (course === "" || name === "" || location === "") {
+            // on fail, display error and return
             group_creation_error('Please fill in required fields.');
             return;
         }
 
-        // add the account
+        // insert group into database
         Groups.insert({
             timestamp: timestamp,
             name: name,
@@ -33,12 +31,20 @@ Template.groups_create.events({
             members: [user_id]
         }, function(error, id) {
             if(error){
+                // show error if any
                 group_creation_error(error.reason);
             }
             else {
-                Router.go('groups_view', {group_id: id}); // Redirect user if registration succeeds
+                // redirect user to group details page on success
+                Router.go('groups_view', {group_id: id});
             }
         });
 
     }
 });
+
+// display error by updating hide / show and setting alert html
+function group_creation_error(error) {
+    $(".alert-danger").show();
+    $(".alert-danger").html(error);
+}

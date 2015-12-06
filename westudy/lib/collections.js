@@ -1,6 +1,8 @@
+// define databasees
 Groups = new Mongo.Collection('groups');
 Posts = new Mongo.Collection('posts');
 
+// specify allowed operations for groups collection
 Groups.allow({
     insert: function (userId, doc) {
         return true;
@@ -20,6 +22,7 @@ Groups.allow({
 
 });
 
+// specify allowed operations for posts collection
 Posts.allow({
     insert: function (userId, doc) {
         return true;

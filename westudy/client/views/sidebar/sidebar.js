@@ -13,7 +13,7 @@ Router.onAfterAction(function() {
     }
 
 
-    //change active tab
+    // change active tab
     $(".active").removeClass("active");
     $("#" + currentTab).addClass("active");
 
@@ -36,8 +36,6 @@ Template.sidebar.events({
 
     // handle logouts
     'click .logout': function(event){
-
-        event.preventDefault();
 
         Meteor.logout();
 

@@ -1,10 +1,11 @@
 // Router Configuration
 
+// set default layout template that applies to all templates
 Router.configure({
     layoutTemplate: 'layout'
 });
 
-
+// specify which routes need to be secured against unauthorized access
 Router.onBeforeAction(security_check, {
   only: ['home', 'account', 'groups', 'groups_create', 'groups_view', 'forums', 'forums_tag', 'forums_create', 'forums_view']
 });
@@ -167,7 +168,7 @@ Router.route('/register', {
     }
 });
 
-// route for everything else: renders notfound
+// catch-all route for everything else: renders notfound
 Router.route('/(.*)', {
     action: function() {
         this.render('notfound');

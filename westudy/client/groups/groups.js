@@ -5,5 +5,5 @@ Template.groups.helpers({
 });
 
 function getGroups() {
-    return Groups.find().fetch().reverse();
+    return Groups.find({},{sort : {timestamp : -1}}).fetch();
 }

@@ -5,5 +5,5 @@ Template.forums_tag.helpers({
 });
 
 function getPosts() {
-    return Posts.find().fetch().reverse();
+    return Posts.find({},{sort : {timestamp : -1}}).fetch();
 }

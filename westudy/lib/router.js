@@ -19,7 +19,7 @@ Router.route('/', {
         return {title: "WeStudy"};
     },
     waitOn : function() {
-        return Meteor.subscribe('user_groups');
+        return [Meteor.subscribe('user_groups'), Meteor.subscribe('user_posts')];
     }
 });
 

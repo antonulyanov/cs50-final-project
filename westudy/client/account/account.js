@@ -20,7 +20,7 @@ Template.account.events({
         var data = {
             first_name: $('[id=first_name]').val(),
             last_name: $('[id=last_name]').val()
-        }
+        };
 
         // validation
         if (data.first_name === "" || data.last_name === "") {

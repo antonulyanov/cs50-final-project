@@ -75,6 +75,17 @@ Router.route('/forums/create', {
     }
 });
 
+Router.route('/forums/tag/:tag', {
+    name: 'forums_tag',
+    template: 'forums_tag',
+    waitOn : function() {
+        return Meteor.subscribe('tagged_posts', this.params.tag);
+    },
+    data: function() {
+        return {title: "Tag Search", tag: this.params.tag};
+    }
+});
+
 Router.route('/forums/view/:post_id', {
     name: 'forums_view',
     template: 'forums_view',
@@ -120,7 +131,7 @@ Router.route('/(.*)', {
 });
 
 Router.onBeforeAction(security_check, {
-  only: ['home', 'account', 'groups', 'groups_create', 'groups_view']
+  only: ['home', 'account', 'groups', 'groups_create', 'groups_view', 'forums', 'forums_tag', 'forums_create', 'forums_view']
 });
 
 function security_check() {

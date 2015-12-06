@@ -14,14 +14,10 @@ Template.forums_view.created = function () {
 
     post = Posts.findOne();
 
-    console.log(post);
-
     if (!post)
     {
         Router.go('notfound');
     }
-
-    postTags = post.tags.join(" ");
 
 };
 
@@ -71,9 +67,6 @@ Template.forums_view.events({
 Template.forums_view.helpers({
     post : function() {
         return getPost();
-    },
-    postTags : function() {
-        return postTags;
     }
 });
 

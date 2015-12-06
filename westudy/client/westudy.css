@@ -34,3 +34,7 @@
 .hidden {
     display:none;
 }
+
+#content {
+    margin-bottom: 20px;
+}

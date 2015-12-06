@@ -47,7 +47,7 @@ Template.forums_view.events({
         }
 
         // insert reply into database, display success, and clear form
-        Posts.update({"_id": post._id}, {$push: {replies: reply} });
+        Posts.update({"_id": getPost()._id}, {$push: {replies: reply} });
         post_view_success("Reply posted successfully.");
         $('#reply').val("");
 

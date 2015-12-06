@@ -12,7 +12,7 @@ Template.groups_view.created = function() {
 
 // on template render, update display of DOM elements
 Template.groups_view.rendered = function() {
-
+    var group = getGroup();
     // if current user is the creator of the group, allow editing and deletion
     if (group.members[0] === Meteor.userId()) {
         $("#current_member").show();

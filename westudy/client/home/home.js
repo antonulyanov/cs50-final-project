@@ -30,6 +30,6 @@ function getUserGroups() {
 }
 
 function getUserPosts() {
-    var user_posts = Posts.find({},{sort: {timestamp: 1}});
+    var user_posts = Posts.find({},{sort: {timestamp: 1}}).fetch();
     return user_posts;
 }

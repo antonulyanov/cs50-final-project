@@ -12,9 +12,9 @@ Template.groups_view.created = function() {
 
 // on template render, update display of DOM elements
 Template.groups_view.rendered = function() {
-    var group = getGroup();
+
     // if current user is the creator of the group, allow editing and deletion
-    if (group.members[0] === Meteor.userId()) {
+    if (getGroup.members[0] === Meteor.userId()) {
         $("#current_member").show();
         $("#group_information input").prop("disabled", false);
         $("#group_information textarea").prop("disabled", false);
@@ -23,7 +23,7 @@ Template.groups_view.rendered = function() {
     }
 
     // if user is a member of the group, allow leaving the group
-    else if ($.inArray(Meteor.userId(), group.members) !== -1)
+    else if ($.inArray(Meteor.userId(), getGroup().members) !== -1)
     {
         $("#current_member").show();
         $("#leave_group").prop('disabled', false);

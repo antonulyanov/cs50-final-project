@@ -10,3 +10,15 @@ UI.registerHelper('getUserName', function(user_id) {
     var user = Meteor.users.findOne({_id : user_id});
     return user.profile.first_name + " " + user.profile.last_name;
 });
+
+Template.layout.rendered = function() {
+    if($(".navbar-toggle").is(":visible")) {
+        $('#sidebar').hide();
+    }
+};
+
+Template.layout.events({
+    "click .navbar-toggle" : function() {
+        $('#sidebar').toggle();
+    }
+});

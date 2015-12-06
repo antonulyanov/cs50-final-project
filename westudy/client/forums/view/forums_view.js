@@ -16,7 +16,7 @@ Template.forums_view.created = function () {
 Template.forums_view.rendered = function() {
 
     // if current user is post author allow deletion
-    if (post.author === Meteor.userId()) {
+    if (getPost().author === Meteor.userId()) {
         $("#delete").show();
         $("#delete").prop('disabled', false);
     }

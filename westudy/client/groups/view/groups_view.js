@@ -14,7 +14,7 @@ Template.groups_view.created = function() {
 Template.groups_view.rendered = function() {
 
     // if current user is the creator of the group, allow editing and deletion
-    if (getGroup.members[0] === Meteor.userId()) {
+    if (getGroup().members[0] === Meteor.userId()) {
         $("#current_member").show();
         $("#group_information input").prop("disabled", false);
         $("#group_information textarea").prop("disabled", false);

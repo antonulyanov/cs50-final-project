@@ -14,8 +14,6 @@ Template.forums_view.created = function () {
 
     post = Posts.findOne();
 
-    console.log(post);
-
     if (!post)
     {
         Router.go('notfound');

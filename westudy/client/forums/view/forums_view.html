@@ -5,14 +5,21 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title left">
-                {{post.title}} [{{formatDateTime(post.timestamp)}}]
-            </h3>
+            <div class="row">
+                <div class="col-xs-7">
+                    <h3 class="panel-title left post-author">{{post.title}}</h3>
+                </div>
+                 <div class="col-xs-5 right">
+                     Posted by {{getUserName(post.author)}} on {{formatDateTime(post.timestamp)}}
+                 </div>
+             </div>
+
         </div>
         <div class="panel-body">
             {{post.content}}
         </div>
         <div class="panel-footer">
+
             <b>Tags: </b>{{postTags}}
         </div>
     </div>
@@ -20,7 +27,12 @@
     {{#each post.replies}}
 
     <div class="panel panel-default">
-        <div class="panel-heading">{{formatDateTime(timestamp)}}</div>
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-6 left reply-author">{{getUserName(author)}} says:</div>
+                <div class="col-xs-6 right">{{formatDateTime(timestamp)}}</div>
+            </div>
+        </div>
         <div class="panel-body">
             {{content}}
         </div>

@@ -1,27 +1,32 @@
 Template.account.events({
+    // detect account form submission event
     'submit #account_change': function() {
 
-        // prevents form from reloading the page by default
+        // prevent page from reloading
         event.preventDefault();
 
-        // save the registration fields
+        // get data from form fields
         var data = {
             first_name: $('[id=first_name]').val(),
             last_name: $('[id=last_name]').val()
         };
 
-        // validation
+        // validate data
         if (data.first_name === "" || data.last_name === "") {
+                // show error and return on failed validation
                 account_error('All fields are required.');
                 return;
         }
 
+        // on successful validation, update the user's information
         Meteor.users.update(Meteor.userId(), {$set: {profile: data}});
 
+        // display success banner
         account_success("Profile updated successfully.");
 
     },
 
+    // detect password form submit event
     'submit #password_change': function() {
 
         // prevents form from reloading the page by default

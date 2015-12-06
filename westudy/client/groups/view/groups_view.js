@@ -43,7 +43,7 @@ Template.groups_view.events({
     'click #join_group': function() {
 
         // insert user into list of group members
-        Groups.update({"_id": group._id}, {$push: {members: Meteor.userId()}});
+        Groups.update({"_id": getGroup()._id}, {$push: {members: Meteor.userId()}});
 
         // update DOM to reflect user's new status
         $("#prospective_member").hide();
@@ -57,7 +57,7 @@ Template.groups_view.events({
     'click #leave_group': function() {
 
         // remove user from list of group members and redirect user to groups page
-        Groups.update({"_id": group._id}, {$pull: {members: Meteor.userId()}});
+        Groups.update({"_id": getGroup()._id}, {$pull: {members: Meteor.userId()}});
         Router.go("groups");
 
     },
@@ -87,7 +87,7 @@ Template.groups_view.events({
         }
 
         // update group with new information and display success banner
-        Groups.update({"_id": group._id}, { $set: {name: name, course: course, location: location, description: description} });
+        Groups.update({"_id": getGroup()._id}, { $set: {name: name, course: course, location: location, description: description} });
         group_edit_success("Group updated successfully.");
 
     },
@@ -103,7 +103,7 @@ Template.groups_view.events({
         }
 
         // remove group from database and redirect to main groups page
-        Groups.remove({"_id": group._id});
+        Groups.remove({"_id": getGroup()._id});
         Router.go("groups");
 
     }
